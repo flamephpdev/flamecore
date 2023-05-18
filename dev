@@ -1,0 +1,35 @@
+<?php
+
+error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE ^ E_DEPRECATED); 
+
+const ROOT = __DIR__;
+
+const CORE = __DIR__ . DIRECTORY_SEPARATOR . 'core';
+
+require CORE . '/version.php';
+
+const DEVROOT = __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'devtools';
+
+$app = require DEVROOT . '/app.php';
+
+$app->initialize(
+    /* command line args */
+    $argv,
+    
+    /* load specific extension */
+    [ 'env' ],
+
+    /* load helpers from the framework */
+    [ 'deletedir', 'dirmaker', 'load_dir_files', 'tocamelcase', 'scandir' ]
+);
+
+$_config = [
+    'api' => [
+        'url' => 'https://flamephp.mrtn.vip/.dev',
+        'key' => 'xxxx-xxxx-xxxx',
+    ],
+];
+
+$app->config($_config);
+
+$app->handleCmd();

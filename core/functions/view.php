@@ -1,6 +1,8 @@
 <?php
 
-function view(string $file,array $data = [],?int $code = 200){
+function view(string $file, array $data = [], ?int $code = 200){
+    if(str_ends_with($file, '/') || str_ends_with($file, '\\')) $file .= 'index';
+
     $GLOBALS['views_data__info'][] = [
         'file' => $file,
         'data' => $data,

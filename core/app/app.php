@@ -25,7 +25,7 @@ class Framework {
                 // scan all the files inside that dir
                 $files = scandir(CORE . $dir);
                 // if the dir has files, loop through all the files, and if it's a php file, require it
-                if(!empty($files)) foreach($files as $file) if(str_ends_with($file ,'.php')) require CORE . $dir . $file;
+                if(!empty($files)) foreach($files as $file) if(str_ends_with($file ,'.php') && !str_ends_with($file ,'.template.php')) require CORE . $dir . $file;
             }
         }
 

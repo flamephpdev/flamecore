@@ -54,7 +54,6 @@ class FlameOperations extends Base {
           $this->endTag = $endTag;
      }
 
-
      private function parser($content, $start, $end){
           $x = explode($start, $content);
           unset($x[0]);

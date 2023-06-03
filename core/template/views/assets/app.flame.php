@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?: _env('NAME','Flame Core') }}</title>
     @stylesheet('css/demo.css')
+    #flame-engine.ignore:start
     <style>
-        #@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght#@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
         body {
             font-family: 'Montserrat', sans-serif;
         }
@@ -25,6 +26,7 @@
             backdrop-filter: blur(20px);
         }
     </style>
+    #flame-engine.ignore:end
     @section:header;
 </head>
 <body class="bg-gray-800 text-white">

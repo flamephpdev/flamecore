@@ -30,13 +30,13 @@
 @dev
 <div class="md:grid grid-rows-2 grid-flow-col gap-2 md:max-w-4xl">
         <div>
-            Render Time: {{ getrtime() }}s
+            Render Time: @getrtime()s
         </div>
         <div>
             Version: {{ VERSION }}
         </div>
         <div>
-            Memory used: {{ formatBytes(memusage()) }}
+            Memory used: @formatBytes(memusage())
         </div>
         <div>
             Turn off <b>APP_DEV</b> in the env to get better resutls

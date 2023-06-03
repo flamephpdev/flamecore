@@ -11,4 +11,7 @@
     <p>Welcome! You're logged in as <b>{{ ucfirst(user()->username) }}</b>.</p>
 </div>
 
+#flame-engine.ignore:next-line
+@Check the dash view file code to disable the<br>{{ parser }} for the next line
+
 @endyield:main;

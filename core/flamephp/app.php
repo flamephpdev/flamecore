@@ -73,6 +73,13 @@ class FlameRender extends Base {
 
                     $view_data_real = $view_data;
 
+                    $ignore = new FlameIgnores(
+                         '#flame-engine.ignore:start',
+                         '#flame-engine.ignore:end',
+                         '#flame-engine.ignore:next-line'
+                    );
+                    $view_data = $ignore->createAndIgnoreHTML($view_data);
+
                     $view_data = FlameParser::auto_tags($view_data, self::$custom_replace);
 
                     $view_data = FlameParser::inline_operators($view_data, self::$ez_tags);
@@ -88,8 +95,13 @@ class FlameRender extends Base {
                     // get the parsed content string
                     $view_data = $fo->getParsed();
 
+                    // now parse back the ignored content
+                    $view_data = $ignore->getRealContent($view_data);
+
+                    $view_data = file_get_contents(__DIR__ . '/view_header.template.php') . $view_data;
+
                     // add some information about the parsed file
-                    $view_data .= "<?php\n/*\nGenerated at: " . date('Y-m-d H:i:s') .  "\nMD5 File Hash: " . md5($view_data_real) . "\nRender Time: " . microtime(true) - $genTime . "s\nFlame Engine ALPHA v0.1\n*/\n?>";
+                    $view_data .= "<?php\nFlameView('::end-file-flameEngine.BackState::');\n/*\nGenerated at: " . date('Y-m-d H:i:s') .  "\nMD5 File Hash: " . md5($view_data_real) . "\nRender Time: " . microtime(true) - $genTime . "s\nFlame Engine ALPHA v0.1\n*/\n?>";
                }
 
                if($is_static) {

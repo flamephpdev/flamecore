@@ -20,7 +20,7 @@ Route::get('/dashboard')->auth(Auth::class)->name('dash')->control(function(){
     ];
 
     // simply return the dashboard view with $links variable
-    return view('dash', compact('links'));
+    return view('dash/', compact('links'));
 });
 
 // a route with params

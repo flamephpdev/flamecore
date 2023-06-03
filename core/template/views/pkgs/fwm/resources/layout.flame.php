@@ -78,7 +78,8 @@
                          numbers += i + '\n'
                          sep += '\n'
                     }
-                    page_data = `<head>{{ stylesheet('css/bootstrap.min.css') }}<style>#@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght#@500&display=swap');</style></head>
+                    // #flame-engine.ignore:next-line
+                    page_data = `<head>{{ stylesheet('css/bootstrap.min.css') }}<style>@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');</style></head>
                     <body style="color:white;background-color:#262335;font-family: Arial, Helvetica, sans-serif;padding:25px;font-size:20px;">
                     <div style="display:flex;">
                     <div style="font-weight:bold;white-space:pre-wrap;color:#888690;-webkit-user-select: none;-ms-user-select: none;user-select: none;text-align:right;font-family: 'Fira Code', monospace;">${numbers}</div>

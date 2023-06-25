@@ -12,7 +12,7 @@ class FlameView {
 
      public function fileSetConfigFlameFile(FlameFile $file) {
           self::$__Files[] = $file;
-          self::$currentInx = count(self::$__Files)-1;
+          self::$currentInx = count(self::$__Files) - 1;
           return self::file();
      }
 
@@ -22,7 +22,9 @@ class FlameView {
      }
 
      public function back() {
-          self::$currentInx = self::$currentInx-1;
+          unset(self::$__Files[self::$currentInx]);
+          self::$__Files = [self::$__Files];
+          self::$currentInx = count(self::$__Files) - 1;
      }
 
 }

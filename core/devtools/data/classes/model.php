@@ -34,16 +34,28 @@ class Model extends ClassROOT {
 
                 
                 $mrfields = "array(\n            // don't add 'id' if you don't have a writable config\n";
+
+                $mreadfields = "array(\n            // fields that you want to allow to read)\n";
+
                 foreach($fields as $field){
-                    if($field != 'id') $mrfields .= "            '" . $field . "',\n";
+                    $f = "            '" . $field . "',\n";
+                    if($field != 'id') $mrfields .= $f;
+                    if(!in_array($field, ['password', 'pw', 'secret_token', 'protected'])) $mreadfields .= $f;
                 }
                 $mrfields .= '        ),';
 
+                $mreadfields .= "            // 'password'   password is a sensitive data so it's ignored\n";
+                $mreadfields .= '        ),';
+
                 $content = str_replace('{ModelRealFields}', $mrfields, $content);
+
+                $content = str_replace('{ModelReadableFields}', $mreadfields, $content);
 
                 $content = str_replace('{ModelName}',$name,$content);
                 $content = str_replace('{ModelTable}',$table,$content);
                 
+                if($mkname['path'] != '') $content = str_replace('{NS}','\\' . str_replace('/','\\',substr($mkname['path'], 0, -1)), $content);
+
                 file_put_contents($model_file, $content);
                 headerPrintBg("{$name} Model Successfully created!",true);
                 exit;

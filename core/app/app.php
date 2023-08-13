@@ -12,7 +12,7 @@ class Framework {
 
     private static $runType = null;
 
-    public static function load($type = 'web'){
+    public static function load($type = 'web', ...$args){
         self::$runType = $type;
 
         // get the required directories to load
@@ -34,8 +34,8 @@ class Framework {
         self::loadAll(ROOT . '/app/Tools');
         require __DIR__ . '/settings.php';
         runtimeLog('Framework assets loaded successfully');
-        if(self::$runType == 'web') return self::loadWeb();
-        else if(self::$runType == 'console') return self::loadConsole();
+        if(self::$runType == 'web') return self::loadWeb(...$args);
+        else if(self::$runType == 'console') return self::loadConsole(...$args);
         echo "Failed to load framework, the specified run type [$type] is not supported";
     }
 
@@ -68,20 +68,23 @@ class Framework {
         return new THEN();
     }
 
-    private static function loadConsole(){
+    private static function loadConsole($dev = false, $argv = []){
         // Console Settings
-        ini_set('display_errors', 1);
-        error_reporting(E_ERROR);
         ini_set('max_execution_time', 0);
         set_time_limit(0);
         
         require CORE . '/devtools/load/loader.php';
-
         \DEV\DEVLoader::load();
+
+        if($dev) {
+            $dev = \Dev\DEVLoader::createApp();
+            $dev->initialize($argv);
+            $dev->config([]);
+            define('DEV', $dev);
+        }
 
         // include the database if it's required
         if(_env('USE_DB', false)) require CORE . '/database/loader.php';
-        else echo "WARNING: Database is not enabled. Enable it in the .env.php file\n";
 
         // boot all the classes that has that functionality
         self::bootClasses();
@@ -89,7 +92,11 @@ class Framework {
         require core('applock.generator.php');
 
         // return a simple then statement, that runs after that function
-        return new Console();
+        console(
+            do: '@Set', 
+            value: new Console()
+        );
+        return console();
     }
 
     private static function loadAll($dir){

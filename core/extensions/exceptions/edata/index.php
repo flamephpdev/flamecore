@@ -1,12 +1,15 @@
 <?php
 
+use Core\Framework\Console\Color\BackgroundColor;
+use Core\Framework\Console\Color\Color;
+use Core\Framework\Console\Color\ForegroundColor;
 use Core\Framework\Framework;
 
 $rurl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 $includes = array_map(function($str) { return str_replace(ROOT, '', $str); }, get_included_files());
 
-if(Framework::isConsole() || getallheaders()['Accept'] == 'application/json'){
+if(Framework::isConsole() || (Framework::isWeb() && getallheaders()['Accept'] == 'application/json')){
 
     $error = [
         'exception' => [
@@ -21,9 +24,27 @@ if(Framework::isConsole() || getallheaders()['Accept'] == 'application/json'){
         'render_time' => getrtime(),
     ];
 
-    echo json_encode($error,JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-    exit;
-
+    if(Framework::isWeb() && getallheaders()['Accept'] == 'application/json') {
+        echo json_encode($error,JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        exit;
+    } else if(Framework::isConsole()) {
+        $exception = $error['exception'];
+        echo "\n";
+        echo Color::Background("Uncaught error: $exception[type]\n", BackgroundColor::RED);
+        echo Color::Foreground("File: ", ForegroundColor::RED);
+        echo $exception['file'] . ':' . $exception['line'];
+        echo Color::Foreground("Message:\n", ForegroundColor::RED);
+        echo $exception['message'];
+        $dir = core('/runtime/errors/');
+        createPath($dir);
+        $data = json_encode($error, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $file_name = 'exception-' . date('Y-m-d-H-i-s') . '.json';
+        if(file_put_contents($dir  . $file_name, $data)) {
+            echo Color::Background("\n\n   For more information, check this file:\n   $dir$file_name\n", BackgroundColor::BLUE);
+        }
+        echo "\nCode:";
+        echo "\n$file_data";
+    }
 } else {
 
 ob_start();

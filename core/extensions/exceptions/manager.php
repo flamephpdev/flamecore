@@ -11,3 +11,5 @@ require __DIR__ . '/assets/functions.php';
 require __DIR__ . '/assets/xdump.php';
 
 register_shutdown_function( "check_for_fatal" );
+
+set_error_handler( "check_for_error" );

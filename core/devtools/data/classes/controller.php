@@ -19,6 +19,8 @@ class Controller extends ClassROOT {
 
                 $content = str_replace('{ControllerName}',$name, $content);
                 
+                if($mkname['path'] != '') $content = str_replace('{NS}','\\' . str_replace('/','\\',substr($mkname['path'], 0, -1)), $content);
+
                 file_put_contents($controller_file, $content);
                 headerPrintBg("{$name} Controller Successfully created!",true);
                 exit;

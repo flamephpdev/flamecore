@@ -1,35 +1,22 @@
 <?php
 
-error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE ^ E_DEPRECATED); 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
+ *                                                          *
+ *      @Deprecated Please use the ignite file instead      *
+ *                                                          *
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-const ROOT = __DIR__;
-
-const CORE = __DIR__ . DIRECTORY_SEPARATOR . 'core';
-
-require CORE . '/version.php';
-
-const DEVROOT = __DIR__ . DIRECTORY_SEPARATOR . 'core' . DIRECTORY_SEPARATOR . 'devtools';
-
-$app = require DEVROOT . '/app.php';
-
-$app->initialize(
-    /* command line args */
-    $argv,
-    
-    /* load specific extension */
-    [ 'env' ],
-
-    /* load helpers from the framework */
-    [ 'deletedir', 'dirmaker', 'load_dir_files', 'tocamelcase', 'scandir' ]
-);
-
-$_config = [
-    'api' => [
-        'url' => 'https://flamephp.mrtn.vip/.dev',
-        'key' => 'xxxx-xxxx-xxxx',
-    ],
-];
-
-$app->config($_config);
-
-$app->handleCmd();
+echo '[43m                        
+       ATTENTION!       
+                        [49m
+[38;5;202m
+################################################################################[39m[38;5;202m
+#[39m                                                                              [38;5;202m#[39m[38;5;202m
+#[39m   Hi! I\'m deprecated, please do not use me anymore.                          [38;5;202m#[39m[38;5;202m
+#[39m   But head up, there is a new file, named "ignite", use that file            [38;5;202m#[39m[38;5;202m
+#[39m   like you used this ("dev") file, just write "ignite" instead of "dev" ;)   [38;5;202m#[39m[38;5;202m
+#[39m                                                                              [38;5;202m#[39m
+[38;5;202m################################################################################
+[39m[32m
+Further good development ;)[39m
+[35mLove you[39m, FlameCore [31m<3[39m';

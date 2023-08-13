@@ -4,16 +4,19 @@ namespace Console\Application;
 
 use Core\Framework\Console\Color\Color;
 use Core\Framework\Console\Color\ForegroundColor;
-use Console;
+use function Console\Log;
 
-class Main {
+class Main extends Base {
 
-     public static function main() {
-          $app = new self();
-          $app->welcome();
+     public function __construct() {
+          Log('The class is constructed ;)');
      }
 
-     public function welcome() {
+     /**
+      * @method Main
+      * Should be named as the class short name!
+      */
+     public function Main():void {
           $created = [];
           $text = str_split("Welcome to the Console Application! Build something beautiful ;)");
           foreach($text as $char) {
@@ -21,7 +24,7 @@ class Main {
                echo implode('', $created) . "\r";
                usleep(50000);
           }
-          Console\Log("\nFor more information visit: https://flamephp.mrtn.vip/docs/console/");
+          Log("\nFor more information visit: https://flamephp.mrtn.vip/docs/console/");
      }
 
 }

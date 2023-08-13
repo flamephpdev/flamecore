@@ -2,7 +2,14 @@
 
 // check if fatal error
 
+use Core\Framework\Console\Color\BackgroundColor;
+use Core\Framework\Console\Color\Color;
+use Core\Framework\Console\Color\ForegroundColor;
 use Core\Framework\Framework;
+
+function check_for_error($code, $text, $file, $line) {
+    check_for_fatal();
+}
 
 function check_for_fatal()
 {
@@ -46,7 +53,7 @@ function display_error(Exception $e){
     $minline = $eline - 4;
     $maxline = $eline + 7;
 
-    if ($handle) {
+    if ($handle && Framework::isWeb()) {
         while (($line = fgets($handle)) !== false && $current_line <= $maxline) {
             //$code .= $line;
             $current_line++;
@@ -58,6 +65,23 @@ function display_error(Exception $e){
                 } else {
                     $file_data .= '<div class="data-error"><span style="margin-left:10px;">' . htmlentities($line) . '</span></div>';
                     $lines .= '<span class="error-dot"><span style="color:red;">&#x25CF;</span>&nbsp;' . $current_line . "&nbsp;</span>\n";
+                }
+            }
+        }
+        fclose($handle);
+    } else {
+        $file_data = '';
+        while (($line = fgets($handle)) !== false && $current_line <= $maxline) {
+            //$code .= $line;
+            $current_line++;
+            if($current_line >= $minline){
+                $spaces_count = 7 - strlen(strval($current_line));
+                if($current_line == $eline) $spaces_count -= 3;
+                
+                if($current_line != $eline){
+                    $file_data .= str_repeat(' ', $spaces_count) . $current_line . ' | ' . $line;
+                } else {
+                    $file_data .= str_repeat(' ', $spaces_count) . Color::Foreground('⬤  ' . $current_line, ForegroundColor::LIGHT_RED) . ' | ' . Color::Background(str_replace("\n", "", $line), BackgroundColor::LIGHT_RED) . Color::Background('', BackgroundColor::LIGHT_GREEN) . Color::Background("❗\n", BackgroundColor::DEFAULT);
                 }
             }
         }

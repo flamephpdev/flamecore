@@ -1,0 +1,6 @@
+{
+     "scripts": {
+          "twdev": "npx tailwindcss -i ./app/Tools/Styles/app.css -o ./public/css/app.css --watch",
+          "twbuild": "npx tailwindcss -i ./app/Tools/Styles/app.css -o ./public/css/app.css"
+     }
+}

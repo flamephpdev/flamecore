@@ -2,8 +2,6 @@
 
 namespace Core\Framework;
 
-use Console\Application\Main;
-use Core\Base\AutoRunner;
 use Core\Framework\Console\Color\Color;
 use Core\Framework\Console\Color\ForegroundColor;
 
@@ -11,10 +9,16 @@ class Console {
      
      private static $loadTimes = 10;
 
-     public function run(){
+     public function __construct() {
+          ini_set('error_reporting', 0);
+          error_reporting(0);
           require_once path(__DIR__. '/color-enum.php');
           require_once path(__DIR__. '/console-colors.php');
+          loadDirFiles(__DIR__ . '/tools');
+          if(!_env('USE_DB')) warn("Database is not enabled. Enable it in the .env.php file");
+     }
 
+     public function run($className = 'Main') {
           $cols = exec('tput cols');
           if(!is_int($cols)) $cols = 5;
           echo chr(27).chr(91).'H'.chr(27).chr(91).'J';
@@ -28,10 +32,17 @@ class Console {
           headerPrint(str_repeat(' ',$cols));
           $this->loader("Initializing");
           _e();
-          loadDirFiles(__DIR__ . '/tools');
           loadDirFiles(root('/Console'));
+          
+          $class = "\Console\Application\\" . $className;
+          $class = new $class;
+          $mainMethod = end(explode('\\', get_class($class)));
+          $class->{$mainMethod}();
+     }
 
-          Main::main();
+     public function runEval($data) {
+          $run = eval($data);
+          echo $run;
      }
 
      private function loader($text = 'Loading'){

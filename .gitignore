@@ -1,5 +1,7 @@
 *.log
-log/*
+*/log/*
+**/errors/*
 */cache/*
 */downloads/*
 *.drawio
+node_modules/*

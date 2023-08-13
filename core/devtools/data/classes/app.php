@@ -33,7 +33,6 @@ class App {
     }
 
     public function handleCmd(){
-
         $cmds = static::$config['cmds'];
         if(!isset(static::$args[1])) {
             $cmds = $cmds['noargs'];
@@ -42,10 +41,13 @@ class App {
         }
         if(isset($cmds[static::mainCmd()])){
             $cmd = $cmds[static::mainCmd()];
-            
-            if(isset($cmd[0]) && isset($cmd[1])){
-                $args = static::$args;
-                array_shift($args);
+
+            $args = static::$args;
+            array_shift($args);
+
+            if(!is_array($cmd) && is_callable($cmd)) {
+                $cmd($args);
+            } else if(isset($cmd[0]) && isset($cmd[1])){
                 call_user_func(array($cmd[0], $cmd[1]),$args);
             }
         } else {

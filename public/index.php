@@ -1,8 +1,9 @@
 <?php
 
-// use the 2 most important classes
+// use the 3 most important classes
 use Core\Framework\Framework;
 use Core\App\Request;
+use Core\App\Response;
 
 // define the application start time
 define('START_TIME', microtime(true));
@@ -16,7 +17,7 @@ Framework::load('web')->then(function(){
     // when the framework loaded
     // catch the requested data
     Request::catch();
-    // load all routes and create a response by controllers
+    // load all routes and make a response by controllers
     // and views
-    Framework::loadRoute();
+    Response::make();
 });

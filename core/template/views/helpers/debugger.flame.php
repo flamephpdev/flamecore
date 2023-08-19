@@ -1,0 +1,1 @@
+{{ view('.src/:flame-debug/compressed') }}

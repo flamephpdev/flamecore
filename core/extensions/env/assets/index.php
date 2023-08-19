@@ -12,4 +12,7 @@ function _env($type, $else = NULL){
     return $else;
 }
 
-require ROOT . '/.env.php';
+$file = ROOT . '/app_env.php';
+if(!file_exists($file) && !(include $file)) {
+    require ROOT . '/env.dev.php';
+} else require ROOT . '/env.php';

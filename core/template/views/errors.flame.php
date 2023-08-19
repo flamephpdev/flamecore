@@ -1,4 +1,4 @@
-@extends:.src/:assets/app;
+@extends(".src/:assets/app")
 
 @yield:main;
     <h1 class="text-3xl">{{ $code }} - {{ $title }}</h1>

@@ -27,12 +27,15 @@ function check_for_fatal()
 
         if ( $error["type"] != E_WARNING && $error['type'] != 8192 ){
             log_error($error["type"], $error["message"], $error["file"], $error["line"]);
+        } else if(Framework::isConsole() && function_exists('warn')) {
+            warn($error['message']);
+            echo "Trace: $error[file]:$error[line]\n";
         }
     }
 }
 
 function display_error(Exception $e){
-    if(!_env('APP_DEV',false)){
+    if(!_env('APP_DEV',false) && !Framework::isConsole()){
         require __DIR__ . '/../edata/server_error_public.php';
         exit;
     }
@@ -52,7 +55,6 @@ function display_error(Exception $e){
     $lines = "";
     $minline = $eline - 4;
     $maxline = $eline + 7;
-
     if ($handle && Framework::isWeb()) {
         while (($line = fgets($handle)) !== false && $current_line <= $maxline) {
             //$code .= $line;
@@ -88,12 +90,13 @@ function display_error(Exception $e){
         fclose($handle);
     }
     $message = $e->getMessage();
+
     require __DIR__ . '/../edata/index.php';
 }
 
 function log_error( $num, $str, $file, $line, $context = null ){
     $e = new ErrorException( $str, 0, $num, $file, $line );
-    if(!_env('APP_DEV',false)){
+    if(!_env('APP_DEV',false) && !Framework::isConsole()){
         $message = date('Y-m-d H:i:s') . "\nType: " . get_class( $e ) . "; Message: {$e->getMessage()};\nFile: {$e->getFile()}; Line: {$e->getLine()};\n";
         $message .= 'Requested: ' . urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) . "\n";
         $logdir = CORE . "/logs/";

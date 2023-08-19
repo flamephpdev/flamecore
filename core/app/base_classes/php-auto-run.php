@@ -8,7 +8,7 @@ abstract class AutoRunner extends Base {
 
      private static $all_config = [];
      private static $delay = 1000;
-     private static string $cache_dir = CORE . '/cache/auto_runner/';
+     private static string $cache_dir = CACHE . '/auto_runner/';
      private static string $cache_file = 'auto_runner.php';
 
      public function delay($ms) {

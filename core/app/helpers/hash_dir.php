@@ -10,7 +10,7 @@ function hashDirectory($directory){
  
      while (false !== ($file = $dir->read())){
           if ($file != '.' and $file != '..'){
-               if(!in_array($file, ['vendor', '.git', 'cache'])){
+               if(!in_array($file, ['vendor', '.git', 'cache', 'node_modules'])){
                     if (is_dir($directory . '/' . $file)){
                          $files[] = hashDirectory($directory . '/' . $file);
                     }

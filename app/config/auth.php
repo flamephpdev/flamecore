@@ -11,6 +11,7 @@
  *                                                                             *
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+$config = array();
 
 // the table used for users
 $config['table'] = 'users';

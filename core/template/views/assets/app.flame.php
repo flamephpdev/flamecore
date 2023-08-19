@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?: _env('NAME','Flame Core') }}</title>
-    @stylesheet('css/demo.css')
+    @useTailwind()
     #flame-engine.ignore:start
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
@@ -41,7 +41,7 @@
     </div>
 
     @dev
-    @page_dev
+    @debugger
     @enddev
 </body>
 </html>

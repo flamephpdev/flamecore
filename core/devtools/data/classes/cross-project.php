@@ -8,7 +8,7 @@ class CrossProject extends ClassROOT {
      private static array $aliases = [];
 
      private static function init(){
-          self::$conf_file = CORE . '/cache/dev/cross-project.php';
+          self::$conf_file = CACHE . '/dev/cross-project.php';
           if(!file_exists(self::$conf_file)){
                createPath(dirname(self::$conf_file));
                file_put_contents(self::$conf_file, "<?php\nreturn " . var_export([
@@ -40,7 +40,7 @@ class CrossProject extends ClassROOT {
                headerPrintBg("Executed, code: $rc\nOutput:", true);
                echo $output;
           } else {
-               headerPrintBg("Invalid Project path: $path", true);
+               error("Invalid Project path: \"$path\"");
           }
      }
 

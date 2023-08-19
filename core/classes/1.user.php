@@ -25,7 +25,7 @@ class User extends ModelBase {
     }
 
     public static function boot():void {
-        self::$_config = require config('user');
+        self::$_config = config('user');
     }
 
     public static function login_user($name = NULL, $findBy = 'username'){

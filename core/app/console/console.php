@@ -10,12 +10,8 @@ class Console {
      private static $loadTimes = 10;
 
      public function __construct() {
-          ini_set('error_reporting', 0);
-          error_reporting(0);
-          require_once path(__DIR__. '/color-enum.php');
-          require_once path(__DIR__. '/console-colors.php');
-          loadDirFiles(__DIR__ . '/tools');
           if(!_env('USE_DB')) warn("Database is not enabled. Enable it in the .env.php file");
+          else info('Database is enabled');
      }
 
      public function run($className = 'Main') {

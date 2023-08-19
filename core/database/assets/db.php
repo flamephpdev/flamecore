@@ -5,6 +5,7 @@ class DB {
     protected static $PDO;
     protected static $connected = false;
     private static $querys = [];
+    private static $_all_querys = [];
     private static bool $logger_on = false;
 
     public static function createConnection($config){
@@ -277,8 +278,10 @@ class DB {
     }
 
     private static function log_query($query, $binds = NULL){
+        $log = new DB\Log($query, $binds);
+        self::$_all_querys[] = $log;
         if(self::$logger_on){
-            self::$querys[] = new DB\Log($query, $binds);
+            self::$querys[] = $log;
         }
     }
 
@@ -291,6 +294,10 @@ class DB {
         $q = self::$querys;
         self::$querys = [];
         return $q;
+    }
+
+    public static function get_all_querys(){
+        return self::$_all_querys;
     }
 
 }

@@ -41,7 +41,7 @@ function asset($asset){
 }
 
 function cache($path){
-    return CORE . '/cache' . startStrSlash($path);
+    return CACHE . startStrSlash($path);
 }
 
 function urlPath(){

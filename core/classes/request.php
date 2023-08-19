@@ -4,6 +4,8 @@ namespace Core\App;
 
 use Core\App\Response;
 use Core\App\Storage\Files;
+use Core\Framework\Console\Color\Color;
+use Core\Framework\Console\Color\ForegroundColor;
 
 class Request {
 
@@ -51,6 +53,7 @@ class Request {
                 }
             }
         }
+        if(_env('APP_DEV')) self::consoleRequest();
     }
 
     public function validate(Validation $v){
@@ -90,6 +93,37 @@ class Request {
 
     public function has($key){
         if(!in_array($key,['password','pw','pass']) && isset(static::$data[$key])) return static::$data[$key];
+    }
+
+    private static function consoleRequest() {
+        require_once core('/app/console/color-enum.php');
+        require_once core('/app/console/console-colors.php');
+        $method_color = NULL;
+        switch(self::$method) {
+            case 'get':
+                $method_color = ForegroundColor::GREEN;
+            break;
+            case 'post':
+                $method_color = ForegroundColor::YELLOW;
+            break;
+            case 'put':
+                $method_color = ForegroundColor::LIGHT_BLUE;
+            break;
+            case 'delete':
+                $method_color = ForegroundColor::LIGHT_RED;
+            break;
+            default:
+                $method_color = ForegroundColor::DEFAULT;
+            break;
+        }
+        $request_string = "[" . 
+        Color::Foreground(
+            strtoupper(self::$method),
+            $method_color
+        ) . "] " . urldecode(
+            parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+        );
+        // error_log($request_string);
     }
 
 }

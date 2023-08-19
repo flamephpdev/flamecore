@@ -12,7 +12,6 @@ class App {
         if(!isset($args[0])) _e( 'Please define minimum 1 argument', true );
         static::$args = $args;
         $GLOBALS['e_req_enabled'] = $extensions;
-        require CORE . '/extensions/e_configdir__/index.php';
         if(!defined('BASE_URL')) define('BASE_URL',_env('PRODUCTION_URL'));
         if(_env('USE_DB', false)) require CORE . '/database/loader.php';
         if(!empty($helpers)){

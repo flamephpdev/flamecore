@@ -33,6 +33,8 @@ $cmds = array(
         // Run other projects "ignite" file without locating to that directory
         'cross' => [ \DEV\CrossProject::class, 'main' ],
         'cross.alias' => [ \DEV\CrossProject::class, 'alias' ],
+        // use env dev or production
+        'env' => [ \DEV\Env::class, 'main' ],
     ),
 );
 

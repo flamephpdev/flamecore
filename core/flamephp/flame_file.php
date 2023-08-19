@@ -9,13 +9,15 @@ class FlameFile {
      private array $__viewconf = array();
      private string $_view_root;
      private string $view_cache_root;
+     private array $applockToken;
 
      public function __construct($file) {
           $this->file = $file;
           $this->_path = dirname($file);
-          $this->__viewconf = require config('view');
+          $this->__viewconf = config('view');
           $this->_view_root = path(substr(endStrSlash($this->__viewconf['view-folder']), 0, -1));
-          $this->view_cache_root = path(core('/cache/views'));
+          $this->view_cache_root = path(cache('/views'));
+          $this->applockToken = require core('applock.token.php');
      }
 
      public function rootPath($path, $real = false) {
@@ -34,6 +36,11 @@ class FlameFile {
           else $path = $this->_path . startStrSlash($path);
           $path = path($path);
           $path = str_replace(path($this->view_cache_root . '/'), '', $path);
+          $path = str_replace(
+               $this->applockToken['framework_builtin_views_directory'],
+               '.src/:',
+               $path
+          );
           return $path;
      }
 

@@ -2,6 +2,7 @@
 
 namespace Console\Application;
 
+use Cache\Views\Flame\FlameRender;
 use Core\Framework\Console\Color\Color;
 use Core\Framework\Console\Color\ForegroundColor;
 use function Console\Log;
@@ -25,6 +26,7 @@ class Main extends Base {
                usleep(50000);
           }
           Log("\nFor more information visit: https://flamephp.mrtn.vip/docs/console/");
+          FlameRender::textParser('<div>{{ "Hello world" }}</div>');          
      }
 
 }

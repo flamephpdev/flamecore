@@ -5,3 +5,9 @@
 */downloads/*
 *.drawio
 node_modules/*
+package-lock.json
+**/applock.token.php
+package-lock.json
+tailwind.config.js
+vendor/*
+package.json

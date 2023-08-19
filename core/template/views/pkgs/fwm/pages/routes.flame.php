@@ -1,4 +1,4 @@
-@extends:.src/:pkgs/fwm/resources/layout;
+@extends(".src/:pkgs/fwm/resources/layout")
 @yield:fwmapp;
 <h2>Routes</h2>
 {{*

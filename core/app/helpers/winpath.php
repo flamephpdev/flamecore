@@ -5,6 +5,6 @@ function winpath($path){
 }
 
 function path($path){
-     if(PHP_OS == 'WINNT') return str_replace('/', '\\', $path);
-     return winpath('\\', '/', $path);
+     if(PHP_OS == 'WINNT' && _env('ENA_WINPATH')) return str_replace('/', '\\', $path);
+     return str_replace('\\', '/', $path);
 }

@@ -6,6 +6,7 @@ use Core\App\Request;
 use Core\Base\Controller;
 use Core\Base\FilterResult;
 use Routing\Route;
+use Routing\Stream;
 
 class Response {
 
@@ -105,6 +106,17 @@ class Response {
 
     private static function wrongProp(){
         Error::NotFound();
+    }
+
+    public static function make() {
+        // try to get the route
+        if($handle = Route::handle()){
+            // if it's successful, stream it
+            Stream::handle($handle);
+        }
+
+        // otherwise drop a 404 error
+        return Error::NotFound();
     }
 
 }

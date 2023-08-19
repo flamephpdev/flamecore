@@ -10,6 +10,7 @@ use Core\App\Validation;
 use Core\Base\Base;
 use Core\App\Mails\Mail;
 use Core\App\Auth\Login;
+use Core\Framework\Framework;
 
 class Auth extends Base {
 
@@ -29,8 +30,8 @@ class Auth extends Base {
     private static bool $verify_email;
     
     public static function boot():void {
-        if(_env('USE_AUTH')){
-            $config = require config('auth');
+        if(Framework::isWeb() && _env('USE_AUTH')){
+            $config = config('auth');
             self::$salt = $config['salt'];
             self::$verify_email = $config['email-verification'];
             if(!_env('USE_SESSION', false)){

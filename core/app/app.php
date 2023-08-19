@@ -2,10 +2,7 @@
 
 namespace Core\Framework;
 
-use Core\App\Error;
 use Core\App\Session;
-use Routing\Route;
-use Routing\Stream;
 use Tools\THEN;
 
 class Framework {
@@ -72,7 +69,7 @@ class Framework {
         // Console Settings
         ini_set('max_execution_time', 0);
         set_time_limit(0);
-        
+
         require CORE . '/devtools/load/loader.php';
         \DEV\DEVLoader::load();
 
@@ -83,8 +80,13 @@ class Framework {
             define('DEV', $dev);
         }
 
-        // include the database if it's required
-        if(_env('USE_DB', false)) require CORE . '/database/loader.php';
+        // the database is automatically loaded from the DEVLoader
+        // so we need to check if it using it or not
+        if(!$dev && _env('USE_DB', false)) require CORE . '/database/loader.php';
+
+        require_once path(__DIR__. '/console/color-enum.php');
+        require_once path(__DIR__. '/console/console-colors.php');
+        loadDirFiles(__DIR__ . '/console/tools');
 
         // boot all the classes that has that functionality
         self::bootClasses();
@@ -126,16 +128,4 @@ class Framework {
             }
         }
     }
-
-    public static function loadRoute(){
-        // try to get the route
-        if($handle = Route::handle()){
-            // if it's successful, stream it
-            Stream::handle($handle);
-        }
-        
-        // otherwise drop a 404 error
-        return Error::NotFound();
-    }
-
 }

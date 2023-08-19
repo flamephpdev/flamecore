@@ -15,6 +15,8 @@ require CORE . '/config.php';
 
 require CORE . '/extensions/e_configdir__/index.php';
 
+define('CACHE', _env('CACHE_ROOT_PATH', CORE . '/cache'));
+
 require CORE . '/ini.config.php';
 
 require CORE . '/app/console/console.php';

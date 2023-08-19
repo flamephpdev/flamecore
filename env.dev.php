@@ -46,6 +46,14 @@ _makeenv([
 
 // New file storage path
 'STORE_PATH' => ROOT . '/app/storage',
+
+// Change the cache folder path
+// 'CACHE_ROOT_PATH' => ROOT . '/{any}', // Do not use / in the end
+
+// Cache all the routes (this will speed up your application)
+// The only downside is that you could't use functional routes
+// Like: ...->control(function() { ... });
+'ROUTE_CACHING' => false,
 ]);
 
 /**

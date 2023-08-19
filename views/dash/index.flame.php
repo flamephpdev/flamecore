@@ -1,4 +1,4 @@
-@extends:.src/:assets/app;
+@extends(".src/:assets/app")
 
 @yield:main;
 

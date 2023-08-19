@@ -7,7 +7,7 @@ use Core\Framework\Framework;
 
 $rurl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-$includes = array_map(function($str) { return str_replace(ROOT, '', $str); }, get_included_files());
+$includes = array_map(function($str) { return str_replace(path(ROOT), '', path($str)); }, get_included_files());
 
 if(Framework::isConsole() || (Framework::isWeb() && getallheaders()['Accept'] == 'application/json')){
 
@@ -30,10 +30,10 @@ if(Framework::isConsole() || (Framework::isWeb() && getallheaders()['Accept'] ==
     } else if(Framework::isConsole()) {
         $exception = $error['exception'];
         echo "\n";
-        echo Color::Background("Uncaught error: $exception[type]\n", BackgroundColor::RED);
+        error("FATAL $exception[type]", BackgroundColor::RED);
         echo Color::Foreground("File: ", ForegroundColor::RED);
         echo $exception['file'] . ':' . $exception['line'];
-        echo Color::Foreground("Message:\n", ForegroundColor::RED);
+        echo Color::Foreground("\nMessage:\n", ForegroundColor::RED);
         echo $exception['message'];
         $dir = core('/runtime/errors/');
         createPath($dir);
@@ -46,7 +46,7 @@ if(Framework::isConsole() || (Framework::isWeb() && getallheaders()['Accept'] ==
         echo "\n$file_data";
     }
 } else {
-
+flush();
 ob_start();
 ?>
 <head>

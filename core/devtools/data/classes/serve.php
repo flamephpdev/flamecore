@@ -8,7 +8,7 @@ class Serve extends ClassROOT {
         'port' => 7000,
         'host' => 'localhost',
     ];
-    private static $hoststore = CORE . '/cache/dev/host.php';
+    private static $hoststore = CACHE . '/dev/host.php';
 
     public static function getStore(){
         return self::$hoststore;
@@ -36,6 +36,15 @@ class Serve extends ClassROOT {
             'port' => static::$config['port'],
         ];
         file_put_contents(self::$hoststore,'<?php return ' . var_export($host_data, true) . '; ?>');
+        ob_start(function($buffer) {
+            // Itt a buffer tartalmazza a PHP beépített szerver üzeneteit
+            // Ezt átirányíthatod a saját logolási mechanizmusodba
+            // Például:
+            file_put_contents(root('app.log'), $buffer, FILE_APPEND);
+            
+            // Töröld a buffert, így a szerver üzenetei nem jelennek meg a kimeneten
+            return '';
+        });
         shell_exec('php -S ' . $host . ' -t ' . ROOT . '/public/' . ' ' . CORE . '/server.php');
     }
 

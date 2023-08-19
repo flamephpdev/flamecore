@@ -199,14 +199,28 @@ class Route {
     }
 
     public static function load(){
-        $dir = ROOT . '/routes/';
-        if(is_dir($dir)){
-            $files = scanDirectory($dir);
-            if(!empty($files)) foreach($files as $file){
-                self::$prefix = '';
-                require endStrSlash($dir) . $file;
+        createPath(cache('/routes/'));
+        $cache = cache('/routes/all.php');
+        $rc = _env('ROUTE_CACHING', false);
+        if((!file_exists($cache) || !$rc) || (_env('APP_DEV'))) {
+            $dir = ROOT . '/routes/';
+            if(is_dir($dir)){
+                $files = scanDirectory($dir);
+                if(!empty($files)) foreach($files as $file){
+                    self::$prefix = '';
+                    require endStrSlash($dir) . $file;
+                }
             }
-        }
+            if($rc) {
+                $routes = self::$routes;
+                foreach($routes as $key => $value) {
+                    if($value['call-function'] && is_callable($value['call']) && !is_string($value['call'])) {
+                        unset($routes[$key]);
+                    }
+                }
+                file_put_contents($cache, "<?php\nreturn " . var_export([...$routes], true) . ";\n");
+            }
+        } else self::$routes = require $cache;
     }
 
     private static function routeByKey($key,$exception = false){

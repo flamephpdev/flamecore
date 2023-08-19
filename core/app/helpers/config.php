@@ -1,5 +1,7 @@
 <?php
 
+use Core\App\Config\Config;
+
 function config($file){
-    return ROOT . '/app/config/' . $file . '.php';
+    return Config::get($file);
 }

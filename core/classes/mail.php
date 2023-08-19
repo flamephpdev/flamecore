@@ -23,7 +23,7 @@ class Mail extends Base {
 
      public static function boot():void {
           self::$from = _env('EMAIL','open@framework.com');
-          $config = require config('email');
+          $config = config('email');
           self::$mail_sender_function = $config['function'];
      }
 

@@ -11,5 +11,3 @@ define('URL_SUBSTR_COUNT',strlen($SERVER_URL . (!$PUBLICRUN ? '/public' : '')));
 define('BASE_URL',$baseurl);
 
 define('SRCDIR',BASE_URL . '/srcdir');
-
-const CACHE = CORE . '/cache';

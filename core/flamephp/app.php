@@ -43,27 +43,21 @@ class FlameRender extends Base {
                     $ex = new Exception();
                     $trace = $ex->getTrace();
                     $final_call = $trace[1];
-                    if(str_starts_with($view_file, self::$views_dir)) $view_file_path = str_replace(self::$views_dir, '{VIEWS_DIR}', $view_file);
-                    if(str_starts_with($view_file, core('template/views'))) $view_file_path = str_replace(core('template/views'), '{TEMPLATES_DIR}', $view_file);
-    
-                    throw new Exception('Trying to import a non-existing file (' . $view_file_path . ')');
+                    throw new Exception('Trying to import a non-existing file (' . $file . ')');
                }
 
                // get the content of the file
                $view_data = file_get_contents($view_file);
-
-               $hash = hash('XXH3', $view_data);
                
                // create the cached file's storage path
                createPath(dirname($cached_file));
+
+               $hash = NULL;
 
                $is_static = false;
 
                // is required to render the file
                if($renderFile) {
-                    $checkHash = new FlameFileHash($hash);
-                    if($checkHash->isValid()) return $checkHash->getFile();
-
                     $st = '@static';
                     if(str_starts_with($view_data, $st)){
                          $is_static = true;
@@ -75,6 +69,10 @@ class FlameRender extends Base {
                     while(str_starts_with($view_data, '@extends(')) {
                          $view_data = FlameExtend::extended($view_data, self::$views_dir, self::$view__autorender_file, self::$store_dir);
                     }
+
+                    $hash = hash('md5', $view_data);
+                    $checkHash = new FlameFileHash($hash);
+                    if($checkHash->isValid()) return $checkHash->getFile();
 
                     $view_data_real = $view_data;
 
@@ -106,7 +104,7 @@ class FlameRender extends Base {
                     $view_data = file_get_contents(__DIR__ . '/view_header.template.php') . $view_data;
 
                     // add some information about the parsed file
-                    $view_data .= "<?php\nFlameView('::end-file-flameEngine.BackState::');\n/*\nGenerated at: " . date('Y-m-d H:i:s') .  "\nMD5 File Hash: " . md5($view_data_real) . "\nRender Time: " . microtime(true) - $genTime . "s\nFlame Engine ALPHA v0.1\n*/\n?>";
+                    $view_data .= "<?php\n/*\nGenerated at: " . date('Y-m-d H:i:s') .  "\nMD5 File Hash: " . md5($view_data_real) . "\nRender Time: " . microtime(true) - $genTime . "s\nFlame Engine ALPHA v0.1\n*/\n?>";
                }
 
                if($is_static) {
@@ -118,7 +116,7 @@ class FlameRender extends Base {
                // save the file data
                file_put_contents($cached_file, $view_data);
 
-               FlameFileHash::addFile($hash, $cached_file);
+               if($hash) FlameFileHash::addFile($hash, $cached_file);
           }
 
           return $cached_file;

@@ -7,6 +7,6 @@ use Views\Files\FlameFile;
 
 $__generated___FlameViewFile_____ = new FlameFile(__FILE__);
 
-FlameView('::init-file-flameEngine::')->fileSetConfigFlameFile($__generated___FlameViewFile_____);
+$_VIEW = $__generated___FlameViewFile_____;
 
 ?>

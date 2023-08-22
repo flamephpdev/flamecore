@@ -31,7 +31,7 @@ class FlameFile {
           return path($this->_path . startStrSlash($path));
      }
 
-     private function path($path = '*') {
+     public function path($path = '*') {
           if(str_starts_with($path, '*')) $path = $this->rootPath(substr($path, 1));
           else $path = $this->_path . startStrSlash($path);
           $path = path($path);

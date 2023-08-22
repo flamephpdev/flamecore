@@ -46,6 +46,21 @@ if(Framework::isConsole() || (Framework::isWeb() && getallheaders()['Accept'] ==
         echo "\n$file_data";
     }
 } else {
+if(class_exists('\Cache\Views\Flame\FlameRender')){
+    $message = str_replace(
+        $p = path(\Cache\Views\Flame\FlameRender::$store_dir), 
+        '<span title="' . $p . '" style="cursor:pointer;border-radius:5px;background-color:#ffca3a;color:black;padding: 3px 10px;">Views</span>', 
+        path($message)
+    );
+}
+if(file_exists($token = CORE . '/applock.token.php')) {
+    $token = require $token;
+    $message = str_replace(
+        $p = path($token['framework_builtin_views_directory']), 
+        '<span title="' . $p . '" style="cursor:pointer;border-radius:5px;background-color:#333;color:white;padding: 3px 10px;">FlameCore@Templates</span>', 
+        path($message)
+    );
+}
 flush();
 ob_start();
 ?>
@@ -81,7 +96,6 @@ ob_start();
         <?= xdump($includes,'Included files') ?>
         <?= xdump(getrtime() . 's','Render Time',false,true) ?>
     </div>
-    <?php echo view(".src/:helpers/page-dev") ?>
 </body>
 <?php
 $page = ob_get_contents();

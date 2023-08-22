@@ -11,15 +11,8 @@ function check_for_error($code, $text, $file, $line) {
     check_for_fatal();
 }
 
-function check_for_fatal()
-{
+function check_for_fatal() {
     if($error = error_get_last()){
-        if(class_exists('\Core\Cache\View')){
-            if(str_starts_with($error['file'],\Core\Cache\View::$store_dir)){
-                $error['file'] = str_replace(\Core\Cache\View::$store_dir,ROOT . '/views',$error['file']);
-            }
-        }
-
         if(class_exists('App\Errors\Log\RunLog')){
             \App\Errors\Log\RunLog::add('FATAL ERROR! EXIT');
             \App\Errors\Log\RunLog::write();
@@ -60,6 +53,7 @@ function display_error(Exception $e){
             //$code .= $line;
             $current_line++;
             if($current_line >= $minline){
+                $line = trim($line, "\n");
                 if($current_line != $eline){
                     $file_data .= '<span>' . highlightText($line) . "</span>";
                     //dd($file_data);

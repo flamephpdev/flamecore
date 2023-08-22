@@ -35,7 +35,7 @@ $data = [
                          callback: fn($d) => 
                               str_replace(
                                    '.src/:', 
-                                   '<span class="bg-yellow-300 text-gray-900 px-2 py-0.5 rounded mx-1">#templates/</span>', 
+                                   '<span class="fldb-bg-sunglow fldb-text-gray-900 fldb-px-2 fldb-py-0.5 fldb-rounded fldb-mx-1 fldb-my-0.5">#templates/</span>', 
                                    $d
                               )
                     ) 
@@ -50,10 +50,10 @@ if(class_exists('DB')) {
           //dd($log);
           $data['tabs']['Database'][] = [
                'miniCodeBlock' => jsvarwcolor($log->query),
-               'dropdown' => "<h4 class='text-lg font-bold bg-yellow-300 text-gray-900 px-2 py-0.5 rounded w-min'>Bindings:</h4>" . jsvarwcolor($log->binded_data) .
-               "\n<h4 class='bg-yellow-300 text-gray-900 px-2 py-0.5 rounded w-min'>File:</h4>" . jsvarwcolor(str_replace(path(ROOT), '', path($log->called['file']))) . ":" . jsvarwcolor($log->called['line']) .
-               "\n<h4 class='bg-yellow-300 text-gray-900 px-2 py-0.5 rounded w-min'>Class:</h4>" . highlightText($log->called['class'] . "::class") .
-               "\n<h4 class='bg-yellow-300 text-gray-900 px-2 py-0.5 rounded w-min'>Function:</h4>" . jsvarwcolor($log->called['function'])
+               'dropdown' => "<h4 class='fldb-text-lg fldb-font-bold fldb-bg-sunglow fldb-text-gray-900 fldb-px-2 fldb-py-0.5 fldb-rounded fldb-w-min'>Bindings:</h4>" . jsvarwcolor($log->binded_data) .
+               "\n<h4 class='fldb-text-lg fldb-font-bold fldb-bg-sunglow fldb-text-gray-900 fldb-px-2 fldb-py-0.5 fldb-rounded fldb-w-min'>File:</h4>" . jsvarwcolor(str_replace(path(ROOT), '', path($log->called['file']))) . ":" . jsvarwcolor($log->called['line']) .
+               "\n<h4 class='fldb-text-lg fldb-font-bold fldb-bg-sunglow fldb-text-gray-900 fldb-px-2 fldb-py-0.5 fldb-rounded fldb-w-min'>Class:</h4>" . highlightText($log->called['class'] . "::class") .
+               "\n<h4 class='fldb-text-lg fldb-font-bold fldb-bg-sunglow fldb-text-gray-900 fldb-px-2 fldb-py-0.5 fldb-rounded fldb-w-min'>Function:</h4>" . jsvarwcolor($log->called['function'])
           ];    
      }
 }

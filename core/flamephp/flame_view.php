@@ -11,14 +11,14 @@ class FlameView {
      private static array $__Files;
 
      public function fileSetConfigFlameFile(FlameFile $file) {
-          self::$__Files[] = $file;
+          self::$__Files[$file->path('@')] = $file;
           self::$currentInx = count(self::$__Files) - 1;
           return self::file();
      }
 
      public function file() {
           if(!isset(self::$__Files[self::$currentInx])) throw new Exception("Using outside a view file");
-          return self::$__Files[self::$currentInx];
+          return self::$__Files;
      }
 
      public function back() {

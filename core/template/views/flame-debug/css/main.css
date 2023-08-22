@@ -1,0 +1,537 @@
+/*
+! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
+*//*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/[flamephp_window_debugger_tailwindcss_root_element] *,
+[flamephp_window_debugger_tailwindcss_root_element] ::before,
+[flamephp_window_debugger_tailwindcss_root_element] ::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: #e5e7eb; /* 2 */
+}[flamephp_window_debugger_tailwindcss_root_element] ::before,
+[flamephp_window_debugger_tailwindcss_root_element] ::after {
+  --tw-content: '';
+}/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+*/[flamephp_window_debugger_tailwindcss_root_element] {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4; /* 3 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-feature-settings: normal; /* 5 */
+  font-variation-settings: normal; /* 6 */
+}/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/[flamephp_window_debugger_tailwindcss_root_element] {
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
+}/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/[flamephp_window_debugger_tailwindcss_root_element] hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/[flamephp_window_debugger_tailwindcss_root_element] abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}/*
+Remove the default font size and weight for headings.
+*/[flamephp_window_debugger_tailwindcss_root_element] h1,
+[flamephp_window_debugger_tailwindcss_root_element] h2,
+[flamephp_window_debugger_tailwindcss_root_element] h3,
+[flamephp_window_debugger_tailwindcss_root_element] h4,
+[flamephp_window_debugger_tailwindcss_root_element] h5,
+[flamephp_window_debugger_tailwindcss_root_element] h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/[flamephp_window_debugger_tailwindcss_root_element] a {
+  color: inherit;
+  text-decoration: inherit;
+}/*
+Add the correct font weight in Edge and Safari.
+*/[flamephp_window_debugger_tailwindcss_root_element] b,
+[flamephp_window_debugger_tailwindcss_root_element] strong {
+  font-weight: bolder;
+}/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/[flamephp_window_debugger_tailwindcss_root_element] code,
+[flamephp_window_debugger_tailwindcss_root_element] kbd,
+[flamephp_window_debugger_tailwindcss_root_element] samp,
+[flamephp_window_debugger_tailwindcss_root_element] pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}/*
+Add the correct font size in all browsers.
+*/[flamephp_window_debugger_tailwindcss_root_element] small {
+  font-size: 80%;
+}/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/[flamephp_window_debugger_tailwindcss_root_element] sub,
+[flamephp_window_debugger_tailwindcss_root_element] sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}[flamephp_window_debugger_tailwindcss_root_element] sub {
+  bottom: -0.25em;
+}[flamephp_window_debugger_tailwindcss_root_element] sup {
+  top: -0.5em;
+}/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/[flamephp_window_debugger_tailwindcss_root_element] table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/[flamephp_window_debugger_tailwindcss_root_element] button,
+[flamephp_window_debugger_tailwindcss_root_element] input,
+[flamephp_window_debugger_tailwindcss_root_element] optgroup,
+[flamephp_window_debugger_tailwindcss_root_element] select,
+[flamephp_window_debugger_tailwindcss_root_element] textarea {
+  font-family: inherit; /* 1 */
+  font-feature-settings: inherit; /* 1 */
+  font-variation-settings: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  font-weight: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/[flamephp_window_debugger_tailwindcss_root_element] button,
+[flamephp_window_debugger_tailwindcss_root_element] select {
+  text-transform: none;
+}/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/[flamephp_window_debugger_tailwindcss_root_element] button,
+[flamephp_window_debugger_tailwindcss_root_element] [type='button'],
+[flamephp_window_debugger_tailwindcss_root_element] [type='reset'],
+[flamephp_window_debugger_tailwindcss_root_element] [type='submit'] {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}/*
+Use the modern Firefox focus style for all focusable elements.
+*/[flamephp_window_debugger_tailwindcss_root_element] :-moz-focusring {
+  outline: auto;
+}/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/[flamephp_window_debugger_tailwindcss_root_element] :-moz-ui-invalid {
+  box-shadow: none;
+}/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/[flamephp_window_debugger_tailwindcss_root_element] progress {
+  vertical-align: baseline;
+}/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/[flamephp_window_debugger_tailwindcss_root_element] ::-webkit-inner-spin-button,
+[flamephp_window_debugger_tailwindcss_root_element] ::-webkit-outer-spin-button {
+  height: auto;
+}/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/[flamephp_window_debugger_tailwindcss_root_element] [type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/[flamephp_window_debugger_tailwindcss_root_element] ::-webkit-search-decoration {
+  -webkit-appearance: none;
+}/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/[flamephp_window_debugger_tailwindcss_root_element] ::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}/*
+Add the correct display in Chrome and Safari.
+*/[flamephp_window_debugger_tailwindcss_root_element] summary {
+  display: list-item;
+}/*
+Removes the default spacing and border for appropriate elements.
+*/[flamephp_window_debugger_tailwindcss_root_element] blockquote,
+[flamephp_window_debugger_tailwindcss_root_element] dl,
+[flamephp_window_debugger_tailwindcss_root_element] dd,
+[flamephp_window_debugger_tailwindcss_root_element] h1,
+[flamephp_window_debugger_tailwindcss_root_element] h2,
+[flamephp_window_debugger_tailwindcss_root_element] h3,
+[flamephp_window_debugger_tailwindcss_root_element] h4,
+[flamephp_window_debugger_tailwindcss_root_element] h5,
+[flamephp_window_debugger_tailwindcss_root_element] h6,
+[flamephp_window_debugger_tailwindcss_root_element] hr,
+[flamephp_window_debugger_tailwindcss_root_element] figure,
+[flamephp_window_debugger_tailwindcss_root_element] p,
+[flamephp_window_debugger_tailwindcss_root_element] pre {
+  margin: 0;
+}[flamephp_window_debugger_tailwindcss_root_element] fieldset {
+  margin: 0;
+  padding: 0;
+}[flamephp_window_debugger_tailwindcss_root_element] legend {
+  padding: 0;
+}[flamephp_window_debugger_tailwindcss_root_element] ol,
+[flamephp_window_debugger_tailwindcss_root_element] ul,
+[flamephp_window_debugger_tailwindcss_root_element] menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}/*
+Reset default styling for dialogs.
+*/[flamephp_window_debugger_tailwindcss_root_element] dialog {
+  padding: 0;
+}/*
+Prevent resizing textareas horizontally by default.
+*/[flamephp_window_debugger_tailwindcss_root_element] textarea {
+  resize: vertical;
+}/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/[flamephp_window_debugger_tailwindcss_root_element] input::-moz-placeholder, [flamephp_window_debugger_tailwindcss_root_element] textarea::-moz-placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}[flamephp_window_debugger_tailwindcss_root_element] input::placeholder,
+[flamephp_window_debugger_tailwindcss_root_element] textarea::placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}/*
+Set the default cursor for buttons.
+*/[flamephp_window_debugger_tailwindcss_root_element] button,
+[flamephp_window_debugger_tailwindcss_root_element] [role="button"] {
+  cursor: pointer;
+}/*
+Make sure disabled buttons don't get the pointer cursor.
+*/[flamephp_window_debugger_tailwindcss_root_element] :disabled {
+  cursor: default;
+}/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/[flamephp_window_debugger_tailwindcss_root_element] img,
+[flamephp_window_debugger_tailwindcss_root_element] svg,
+[flamephp_window_debugger_tailwindcss_root_element] video,
+[flamephp_window_debugger_tailwindcss_root_element] canvas,
+[flamephp_window_debugger_tailwindcss_root_element] audio,
+[flamephp_window_debugger_tailwindcss_root_element] iframe,
+[flamephp_window_debugger_tailwindcss_root_element] embed,
+[flamephp_window_debugger_tailwindcss_root_element] object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/[flamephp_window_debugger_tailwindcss_root_element] img,
+[flamephp_window_debugger_tailwindcss_root_element] video {
+  max-width: 100%;
+  height: auto;
+}/* Make elements with the HTML hidden attribute stay hidden by default */[flamephp_window_debugger_tailwindcss_root_element] [hidden] {
+  display: none;
+}[flamephp_window_debugger_tailwindcss_root_element] *, [flamephp_window_debugger_tailwindcss_root_element] ::before, [flamephp_window_debugger_tailwindcss_root_element] ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}[flamephp_window_debugger_tailwindcss_root_element] ::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-fixed {
+  position: fixed;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-bottom-0 {
+  bottom: 0px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-left-0 {
+  left: 0px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-right-0 {
+  right: 0px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-z-\[99999\] {
+  z-index: 99999;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-z-\[999\] {
+  z-index: 999;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-my-0\.5 {
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-ml-auto {
+  margin-left: auto;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-box-border {
+  box-sizing: border-box;
+}[flamephp_window_debugger_tailwindcss_root_element] .\!fldb-flex {
+  display: flex !important;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-flex {
+  display: flex;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-hidden {
+  display: none;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-h-12 {
+  height: 3rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-h-5\/6 {
+  height: 83.333333%;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-h-full {
+  height: 100%;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-w-12 {
+  width: 3rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-w-4\/5 {
+  width: 80%;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-w-full {
+  width: 100%;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-w-min {
+  width: -moz-min-content;
+  width: min-content;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-cursor-n-resize {
+  cursor: n-resize;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-cursor-pointer {
+  cursor: pointer;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-flex-col {
+  flex-direction: column;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-items-center {
+  align-items: center;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-overflow-scroll {
+  overflow: scroll;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-overflow-x-scroll {
+  overflow-x: scroll;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-overflow-y-scroll {
+  overflow-y: scroll;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-rounded {
+  border-radius: 0.25rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-rounded-tl {
+  border-top-left-radius: 0.25rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-border {
+  border-width: 1px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-border-2 {
+  border-width: 2px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-border-b {
+  border-bottom-width: 1px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-border-b-0 {
+  border-bottom-width: 0px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-border-l {
+  border-left-width: 1px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-border-r {
+  border-right-width: 1px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-border-r-0 {
+  border-right-width: 0px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-border-t-4 {
+  border-top-width: 4px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-border-gray-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(17 24 39 / var(--tw-border-opacity));
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-border-sunglow {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 202 58 / var(--tw-border-opacity));
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-border-sweetred {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 89 94 / var(--tw-border-opacity));
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-bg-sunglow {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 202 58 / var(--tw-bg-opacity));
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-p-2 {
+  padding: 0.5rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-p-5 {
+  padding: 1.25rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-py-0\.5 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-pb-1 {
+  padding-bottom: 0.25rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-pb-14 {
+  padding-bottom: 3.5rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-pt-4 {
+  padding-top: 1rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-pt-5 {
+  padding-top: 1.25rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-font-bold {
+  font-weight: 700;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-leading-relaxed {
+  line-height: 1.625;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-drop-shadow {
+  --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-transition {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}[flamephp_window_debugger_tailwindcss_root_element] .fldb-duration-150 {
+  transition-duration: 150ms;
+}[flamephp_window_debugger_tailwindcss_root_element] * {
+     font-family: 'Fira Code', monospace!important;
+}[flamephp_window_debugger_tailwindcss_root_element] .hover\:fldb-bg-gray-950:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(3 7 18 / var(--tw-bg-opacity));
+}

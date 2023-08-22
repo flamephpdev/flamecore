@@ -14,8 +14,7 @@ class DB {
                 self::$PDO = new PDO("mysql:host=$config[host];port=$config[port];dbname=$config[dbname]", "$config[user]", "$config[password]");
                 self::$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch(Exception $e){
-                display_error($e);
-                exit;
+                dd($e);
             }
             self::$connected = true;
         }

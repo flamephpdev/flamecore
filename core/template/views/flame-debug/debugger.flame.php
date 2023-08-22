@@ -1,69 +1,77 @@
 <?php
 
-if(!function_exists('framework_debugger_generated_id')) {
+if (!function_exists('framework_debugger_generated_id')) {
      function framework_debugger_generated_id() {
-          if(!isset($GLOBALS['fdgid___'])) $GLOBALS['fdgid___'] = uniqid('fgid:');
+          if (!isset($GLOBALS['fdgid___'])) $GLOBALS['fdgid___'] = uniqid('fgid:');
           return $GLOBALS['fdgid___'];
      }
 }
 
-if(!function_exists('jsvarwcolor')) {
+if (!function_exists('jsvarwcolor')) {
      function jsvarwcolor($data, $color = true, callable|null $callback = NULL, $json = false) {
-          if(!$json) $var = var_export($data, true);
+          if (!$json) $var = var_export($data, true);
           else $var = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-          if($color) $var = highlightText($var);
-          if(is_callable($callback)) $var = $callback($var);
+          if ($color) $var = highlightText($var);
+          if (is_callable($callback)) $var = $callback($var);
           return ($var);
      }
 }
 
 ?>
-<div debug_console_application="button:@framework_debugger_generated_id()" class="transition duration-150 cursor-pointer fixed bottom-0 right-0 p-2 bg-gray-900 hover:bg-gray-950 shadow flex items-center rounded-tl border-2 border-r-0 border-b-0 z-[999]">
-     <div class="flex items-center">
-          {{ FlameView()->import('./utils/logo.html') }}
+<!-- {{ str_repeat("-", 50) }} -->
+<!-- ATTENTION! ONLY USE IT ON DEVELOPMENT! -->
+<!--
+     FlameCore Debugger Console for client-side web apps
+     Framework version: v{{ VERSION }}
+     Application Built on OpenFramework: https://github.com/bndrmrtn/openframework/
+     Debugger Console Version: ALPHA
+-->
+<!-- HTML App Code -->
+<div debug_console_application_wrapper_element flamephp_window_debugger_tailwindcss_root_element>
+     <div debug_console_application="button:@framework_debugger_generated_id()" class="fldb-transition fldb-duration-150 fldb-cursor-pointer fldb-fixed fldb-bottom-0 fldb-right-0 fldb-p-2 fldb-bg-gray-900 hover:fldb-bg-gray-950 fldb-shadow fldb-flex fldb-items-center fldb-rounded-tl fldb-border-2 fldb-border-r-0 fldb-border-b-0 fldb-border-sweetred fldb-z-[999]">
+          <div class="fldb-flex fldb-items-center">{{ $_VIEW->import('./utils/logo.html') }}</div>
      </div>
-</div>
-<div 
-debug_console_application="app:@framework_debugger_generated_id()" 
-class="hidden fixed bottom-0 left-0 w-full bg-gray-900 resizable z-[99999] drop-shadow">
-     <div class="resizer box-border border-t-4 border-[#ffca3a] w-full cursor-n-resize"></div>
-     <div debugger_tabs class="flex border-b overflow-x-scroll">
-          <div class="transition duration-150 flex items-center cursor-pointer text-3xl px-4 pt-4 pb-1 hover:bg-gray-950 border-r">
-               @svglogo
+     <div debug_console_application="app:@framework_debugger_generated_id()" class="fldb-text-white fldb-hidden fldb-fixed fldb-bottom-0 fldb-left-0 fldb-w-full fldb-bg-gray-900 fldb-resizable fldb-z-[99999] fldb-drop-shadow">
+          <div class="resizer fldb-box-border fldb-border-t-4 fldb-border-sunglow fldb-w-full fldb-cursor-n-resize"></div>
+          <div debugger_tabs class="fldb-flex fldb-border-b fldb-overflow-x-scroll">
+               <div class="fldb-transition fldb-duration-150 fldb-flex fldb-items-center fldb-cursor-pointer fldb-text-3xl fldb-px-4 fldb-pt-4 fldb-pb-1 hover:fldb-bg-gray-950 fldb-border-r">@svglogo</div>
+               <div class="fldb-bg-gray-900 fldb-p-5 fldb-w-full"></div>
           </div>
-          <div class="bg-gray-900 p-5 w-full"></div>
+          <div debugger_pages class="fldb-w-4/5 fldb-h-5/6 my-auto fldb-mx-auto fldb-!max-h-full fldb-overflow-y-scroll fldb-my-auto"></div>
      </div>
-     <div debugger_pages class="w-4/5 mx-auto !max-h-full overflow-y-scroll my-auto">
-
-     </div>
+     <div class="fldb-hidden fldb-h-full fldb-text-2xl fldb-!bg-gray-950"></div>
+     <div ___tailwind_used_classes class="fldb-p-2 fldb-my-2 fldb-hidden fldb-text-3xl fldb-text-2xl fldb-text-xl fldb-my-2 fldb-my-3 fldb-border-r fldb-border-l fldb-py-5 fldb-bg-sunglow fldb-text-gray-900 fldb-px-2 fldb-py-0.5 fldb-rounded fldb-mx-1 fldb-pt-5 fldb-pb-14 fldb-text-lg fldb-font-bold"></div>
 </div>
-<div class="hidden h-full text-2xl !bg-gray-950"></div>
-<div ___tailwind_used_classes class="p-2 my-2 hidden text-3xl text-2xl text-xl my-2 my-3 border-r border-l py-5 bg-yellow-300 text-gray-900 px-2 py-0.5 rounded mx-1 pt-5 pb-14 text-lg font-bold"></div>
+<!-- Scripts -->
+@script(){ 
+     {{ $_VIEW->import('./js/app.js') }} }
 @script()
-{
-     {{ FlameView()->import('./js/app.js') }}
-}
-@script()
-
+<!-- Styles -->
+@style()
+{{ $_VIEW->import('./css/main.css') }}
+@style()
 #flame-engine.ignore:start
 <style>
-.___debug_code_block {
-     border-radius: 0;
-     border-bottom-right-radius: 0px;
-     border-bottom-right-radius: 3px;
-     font-size: 18px;
-     padding: 15px;
-     background-color: #262335;
-     width: 100%;
-     overflow-y: scroll;
-     border-radius: 3px;
-     width: 100%;
-     display: block;
-     max-height: 300px;
-     overflow: scroll;
-}
-[debugger__tab_selected] {
-     background-color: rgb(3 7 18 / var(--tw-bg-opacity)) !important;
-}
+     .___debug_code_block {
+          border-radius: 0;
+          border-bottom-right-radius: 0;
+          border-bottom-right-radius: 3px;
+          font-size: 18px;
+          padding: 15px;
+          background-color: #262335;
+          width: 100%;
+          overflow-y: scroll;
+          border-radius: 3px;
+          width: 100%;
+          display: block;
+          max-height: 300px;
+          overflow: scroll
+     }
+
+     [debugger__tab_selected] {
+          background-color: #ffca3a !important
+     }
 </style>
 #flame-engine.ignore:end
+<!-- END OF DEBUGGER TOOL -->
+<!-- {{ str_repeat("-", 50) }} -->

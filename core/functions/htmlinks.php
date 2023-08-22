@@ -7,8 +7,16 @@ function urlOrAsset($asset){
     return $asset;
 }
 
-function stylesheet($style,$attrs = ''){
-    return '<link rel="stylesheet" href="'. urlOrAsset($style) . '"' . $attrs . '>' . "\n";
+function stylesheet($style = NULL,$attrs = ''){
+    if(!is_null($style)) return '<link rel="stylesheet" href="'. urlOrAsset($style) . '"' . $attrs . '>' . "\n";
+    if(!isset($GLOBALS['htmlinks___']['style_close'])) $GLOBALS['htmlinks___']['style_close'] = false;
+    $GLOBALS['htmlinks___']['style_close'] = !$GLOBALS['htmlinks___']['style_close'];
+    if(!$GLOBALS['htmlinks___']['style_close']) return "</style>";
+    else return "<style>";
+}
+
+function style(...$args) {
+    return stylesheet(...$args);
 }
 
 function script($script = NULL,$attrs = ''){

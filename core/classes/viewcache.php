@@ -77,10 +77,7 @@ class View extends Base {
                 $ex = new \Exception();
                 $trace = $ex->getTrace();
                 $final_call = $trace[1];
-                if(str_starts_with($view_file, self::$views_dir)) $view_file_path = str_replace(self::$views_dir, '{VIEWS_DIR}', $view_file);
-                if(str_starts_with($view_file, core('template/views'))) $view_file_path = str_replace(core('template/views'), '{TEMPLATES_DIR}', $view_file);
-
-                throw new Exception('Trying to import a non-existing file (' . $view_file_path . ')');
+                throw new Exception('Trying to import a non-existing file (' . $file . ')');
             }
 
             $view_data = file_get_contents($view);

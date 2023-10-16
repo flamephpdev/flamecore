@@ -4,7 +4,7 @@ namespace Routing;
 
 use Core\App\CallController;
 use Core\App\Error;
-use Core\App\Request;
+use Core\Flame\Request;
 use Header;
 
 class Stream {
@@ -33,7 +33,7 @@ class Stream {
                 }
                 if(method_exists($instance, '__onUse'))  $instance::__onUse();
                 if(method_exists($instance, '__csrf') && _env('USE_CSRF')){
-                    if(!$instance::__csrf() && Request::method() !== 'get'){
+                    if(!$instance::__csrf() && Request::Current()->method() !== 'get'){
                         return back('Failed to validate CSRF Token');
                     }
                 }

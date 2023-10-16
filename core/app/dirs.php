@@ -6,6 +6,7 @@ return array(
     '/app/helpers/',
     '/functions/',
     '/classes/',
+    '/flamerequest/',
     '/flamephp/',
     '/http/',
     '/app/plugins/',

@@ -2,7 +2,7 @@
 
 namespace Core\App;
 
-use Core\App\Request;
+use Core\Flame\Request;
 use Core\Base\Controller;
 use Core\Base\FilterResult;
 use Routing\Route;

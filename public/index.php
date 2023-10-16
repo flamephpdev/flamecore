@@ -2,8 +2,8 @@
 
 // use the 3 most important classes
 use Core\Framework\Framework;
-use Core\App\Request;
 use Core\App\Response;
+use Core\Flame\Request;
 
 // define the application start time
 define('START_TIME', microtime(true));

@@ -118,7 +118,7 @@ class Framework {
 
     private static function loadFiles(): void {
         $cache = CACHE . '/framework/@flame/@app/root/core/app/load-files.php';
-        if(file_exists($cache)) {
+        if(file_exists($cache) && !_env('APP_DEV')) {
             try {
                 foreach(require $cache as $file) require $file;
             } catch(Exception $e) {

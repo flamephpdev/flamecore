@@ -12,7 +12,7 @@ _makeenv([
 'PRODUCTION_URL' => 'http://localhost:7000',
 
 // Development mode
-'APP_DEV' => true, // false by default
+'APP_DEV' => false, // false by default
 'DEV_PORT' => 7000, // default: 7000
 
 // Always re-Render the views on Development mode

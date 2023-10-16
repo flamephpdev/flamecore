@@ -11,7 +11,7 @@ function json_atob($data, $json = false, $hightlight = false){
 const __pd_init_application = () => {
      __pd_build_application({
           'current_route': __pd_app_parser('{{ json_atob(urlPath()) }}'),
-          'request': __pd_app_parser('{{ json_atob(request()->rawData(), true, true) }}'),
+          'request': __pd_app_parser('{{ json_atob(request()->body(), true, true) }}'),
           'GET_params': __pd_app_parser('{{ json_atob($_GET, true, true) }}'),
           'session': __pd_app_parser('{{ json_atob(session(), true, true) }}'),
           'route_name': __pd_app_parser('{{ json_atob(routeName(true)) }}'),

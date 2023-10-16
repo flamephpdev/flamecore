@@ -1,11 +1,11 @@
 <?php
 
-use Core\App\Request;
+use Core\Flame\Request;
 
 function response(){
-    return Request::response();
+    return Request::Current()->response();
 }
 
 function request(){
-    return new Request;
+    return Request::Current();
 }

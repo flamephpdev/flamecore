@@ -69,7 +69,7 @@ class Auth extends Base {
         $userValidation = self::$config['validation']['user'];
         $passwordValidation = self::$config['validation']['password'];
 
-        $login = request()->validate(new Validation([
+        $login = (new Request)->validate(new Validation([
            $userValidation['col'] => $userValidation['validation'],
            $passwordValidation['col'] => [],
         ],self::$config['validation_errors']));
@@ -238,7 +238,7 @@ class Auth extends Base {
             $userValidation = self::$config['validation']['user'];
             $passwordValidation = self::$config['validation']['password'];
 
-            $data = request()->validate(new Validation(array_merge([
+            $data = (new Request)->validate(new Validation(array_merge([
                 $userValidation['col'] => $userValidation['validation'],
                 $passwordValidation['col'] => [],
             ],$formValidation),self::$config['validation_errors']));

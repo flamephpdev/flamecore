@@ -1,7 +1,7 @@
 <form action="{{ $route }}" method="POST">
     <div class="inputBox">
         @foreach($fields as $field_name => $field):
-            <input type="{{$field['type'] ?: 'text'}}" name="{{$field_name}}" placeholder="{{ ucfirst($field_name) }}" value="{{ request()->has($field_name) }}" class="transition duration-150 w-full px-4 py-3 rounded border-none bg-gray-800 border focus:bg-gray-600 hover:bg-gray-700 focus:outline-none my-1" /><br/>
+            <input type="{{$field['type'] ?: 'text'}}" name="{{$field_name}}" placeholder="{{ ucfirst($field_name) }}" value="{{! request()->body->has($field_name) }}" class="transition duration-150 w-full px-4 py-3 rounded border-none bg-gray-800 border focus:bg-gray-600 hover:bg-gray-700 focus:outline-none my-1" /><br/>
             @if($error = $errors[$field_name]):
                 <p class="text-sweetred mb-1"><b>&times;</b> {{$error}}</p>
             @endif

@@ -2,6 +2,8 @@
 
 namespace Routing;
 
+use Core\Flame\Request;
+
 class Route {
 
     // route data
@@ -123,7 +125,7 @@ class Route {
     }
 
     public static function handle(){
-        $method = \Core\App\Request::method();
+        $method = Request::Current()->method();
         self::load();
 
         $routes = Router::exploded();

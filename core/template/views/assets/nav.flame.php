@@ -21,7 +21,7 @@
                                    </li>
                               @endif
                          @endforeach
-                         @if(_env('APP_DEV')):
+                         @if(_env('APP_DEV') && false /* Sorry this is under a refactor... */):
                               <li>
                                    <a href="{{ route('pkg.fwm.index') }}" class="block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 text-white md:hover:text-sweetred hover:bg-sweetred hover:text-white md:hover:bg-transparent my-1">FWM Dashboard</a>
                               </li>

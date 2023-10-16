@@ -14,10 +14,10 @@
 namespace App\Controller;
 
 use Core\App\Accounts\User;
-use Core\App\Request;
 use Core\App\Session;
 use Core\App\Validation;
 use Core\Base\Controller;
+use Core\Flame\Request;
 
 class UserController extends Controller {
 
@@ -67,19 +67,19 @@ class UserController extends Controller {
                          // so we just edit the logged in user by the user() function
 
           // validate the incoming email
-          $request->validate(new Validation([
+          $validator = $request->body->validate([
                'email' => [ 'email' => 'Invalid email format' ],
           ],[
                'required' => 'This field is required',
-          ]));
+          ]);
 
           // if the email is valid
-          if($request->is_valid()){
+          if($validator->isDataValid()){
                // create a variable for the user function
                // required to edit user data
                $user = user();
                // edit the email param by this
-               $user->email = $request->getValid()['email'];
+               $user->email = $validator->getValidatedData()['email'];
                // then update the user
                $user->update();
                // and redirect to the GET method page
@@ -88,7 +88,7 @@ class UserController extends Controller {
                // if the sessions are enabled (required for the auth by default)
                // you could create a one request data that will stored and
                // automaticly being deleted after the next request
-               Session::SingleUse('errors', $request->getErrors()); // this data will stored in the $_SESSION variable
+               Session::SingleUse('errors', $validator->getErrors()); // this data will stored in the $_SESSION variable
                // and redirect to the GET method page
                redirect(route('user', user()->username));
           }

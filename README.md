@@ -1,38 +1,61 @@
 # Welcome to Flame Core!
 
-## Create PHP Apps in a faster way
+## What is FlameCore?
 
-With Flame Core, you can build your applications and apps faster than you think.
-Works with built-in user management that you can turn on and off, as well as authentic email verifications. Create routes quickly, set user authentication needs, etc.
+FlameCore is a PHP Framework that operates independently, free from any other code dependencies. It can be installed and run seamlessly.
 
-## dev PHP File
+## How to run?
 
-Usage:
-```php
-php dev ...args
-```
-Using it to make the framework even faster to use.
-You can use it to start the development server, create models, database tables or run common database management commands.
+To get started, you can clone the project using Git, or simply download the ZIP file and extract it using the following commands:
 
-## Config File (.env.php)
-
-In this file you can configure how the framework works (may contain sensitive data, e.g. database access codes, etc.)
-
-## Folder System
-
-In normal use, the use of 3 folders will be of interest.
-
-1. /app
-2. /routes
-3. /views
-
-After learning about these folders, you can code faster than in plain php. The framework is slim so it can fit in almost any small repository, and there's less coding to do.
-
-## Start the development
-
-To start your dev server, run this command in your terminal (Make sure you are in the framework's directory):
-```php
-php dev serve
+```bash
+git clone https://github.com/flamephpdev/flamecore.git
 ```
 
-Then you can start development via the link provided.
+Navigate to the project directory:
+```bash
+cd flamecore-main
+```
+
+Launch the development server:
+```bash
+php ignite serve
+```
+
+## How it works?
+
+FlameCore has its own predefined folder structure, which currently cannot be altered. So, how can you use it?
+Okay but how to use it?
+
+Primarily, these are the folders commonly used during development:
+
+```text
+📦 FlameCore Project
+    📂 app
+        📂 Controllers
+        📂 Models
+        📂 config
+        📂 ...
+    📂 public
+    📂 routes
+    📂 views (optional)
+    📜 env.php
+    📜 ignite
+```
+
+That's great, but how do you get started?
+First and foremost, you need to design how your application will function, including all the endpoints. Typically, developers start with creating a new route, like this:
+
+```php
+use Routing\Route;
+use Cache\Views\Flame\FlameRender;
+
+Route::get('/counter/{int:i}')->name('counter')->control(function ($i) {
+    return FlameRender::textParser('
+        <h1>Count {{ $i }}</h1>
+        <a href="{{ $addOneLink }}">Add +1</button>
+    ', ['addOneLink' => route('counter', $i)]);
+});
+```
+
+This is the simplest demonstration of this framework. For more details, you can refer to the official documentation [here](https://flamephpdev.mrtn.vip).

@@ -58,4 +58,4 @@ Route::get('/counter/{int:i}')->name('counter')->control(function ($i) {
 });
 ```
 
-This is the simplest demonstration of this framework. For more details, you can refer to the official documentation [here](https://flamephpdev.mrtn.vip).
+This is the simplest demonstration of this framework. For more details, you can refer to a documentation page [here](https://flamephp.mrtn.vip) (yeah, built with FlameCore too, in production 😏).

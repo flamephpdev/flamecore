@@ -20,8 +20,11 @@ function check_for_fatal() {
 
         if ( $error["type"] != E_WARNING && $error['type'] != 8192 ){
             log_error($error["type"], $error["message"], $error["file"], $error["line"]);
-        } else if(Framework::isConsole() && function_exists('warn')) {
+        } else if(class_exists(Framework::class) && Framework::isConsole() && function_exists('warn')) {
             warn($error['message']);
+            echo "Trace: $error[file]:$error[line]\n";
+        } else {
+            echo $error['message'];
             echo "Trace: $error[file]:$error[line]\n";
         }
     }

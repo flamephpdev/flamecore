@@ -1,7 +1,5 @@
 <?php
 
-ini_set('error_reporting', 0);
-
 define('ROOT', dirname(__DIR__));
 
 $composer = ROOT . '/vendor/autoload.php';

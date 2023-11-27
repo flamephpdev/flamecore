@@ -8,6 +8,7 @@ return array(
     '/classes/',
     '/flamerequest/',
     '/flamephp/',
+    '/flame_registry/core/',
     '/http/',
     '/app/plugins/',
 );

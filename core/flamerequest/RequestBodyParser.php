@@ -37,7 +37,7 @@ class RequestBodyParser {
           } else return false;
      }
 
-     public function validate(array $validation, array $messages): RequestValidator {
+     public function validate(array $validation, array $messages = []): RequestValidator {
           $validator = new RequestValidator($validation, $messages);
           $validator->make();
           return $validator;

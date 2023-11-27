@@ -24,6 +24,10 @@ class DB {
         return self::$connected;
     }
 
+    public static function getConnection():PDO {
+        return self::$PDO;
+    }
+
     public static function select($select = "*",$from = 'test',$where_array = NULL,$order = NULL,$array_key = NULL,$limit = NULL,$offset = NULL,array $like = NULL,array $or = NULL){
         if(self::$connected){
             if($where_array != NULL){

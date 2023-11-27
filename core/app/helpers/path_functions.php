@@ -27,7 +27,8 @@ function routes($path){
 }
 
 function url($path = '/'){
-    return BASE_URL . startStrSlash($path);
+    $base = BASE_URL . '/' . Routing\Router::getPrefix() . substr(startStrSlash($path), 1);
+    return substr(endStrSlash($base), 0, -1) . Routing\Router::getSuffix();
 }
 
 function redirect($to = '/'){

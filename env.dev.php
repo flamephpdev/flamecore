@@ -54,6 +54,15 @@ _makeenv([
 // The only downside is that you could't use functional routes
 // Like: ...->control(function() { ... });
 'ROUTE_CACHING' => false,
+// Router pattern to define the path for the router to work with
+// like: :domain/my_flamecore_app/:path
+// break it down to parts:
+// / <- this is the root url
+// :path <- this is the path that the app uses
+'ROUTE_PATTERN' => '/:path',
+// maybe when you wanna run it from an other folder, like: /myapp1 and /myapp2
+// ATTENTION: when you wanna run it from an other folder, make sure to properly setup
+// the public folder and do not publish the other folders to the www root folder!
 ]);
 
 /**
